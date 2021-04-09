@@ -1,0 +1,24 @@
+$font__title:'Roboto', sans-serif;
+
+@mixin title($font__title){
+    width: 100%;
+    font-family: $font__title;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.title{
+    @include title($font__title);
+}
+
+@mixin font-general($font__title){
+    width: 100%;
+    font-family: $font__title;
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: lighter;
+}
+
+.font-general{
+    @include font-general($font__title);
+}

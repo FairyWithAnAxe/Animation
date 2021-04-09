@@ -1,0 +1,327 @@
+@charset "UTF-8";
+/*Обнуление*/
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/*импорты связанных scss файлов*/
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  margin: 0 auto;
+  row-gap: 25%;
+  -webkit-column-gap: 1px;
+          column-gap: 1px;
+  background-image: url(../image/Карелия.jpg);
+  background-size: cover;
+  -ms-grid-columns: 25% 50% 25%;
+      grid-template-columns: 25% 50% 25%;
+  -ms-grid-rows: 10% 30% 10%;
+      grid-template-rows: 10% 30% 10%;
+      grid-template-areas: "header header header" " .    central-part  . " " .    arrow  . ";
+}
+
+.header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: header;
+  width: 100%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -webkit-column-gap: 1px;
+          column-gap: 1px;
+      grid-template-areas: "logo menu  contact-link";
+}
+
+/*Лого*/
+.logo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: logo;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 5%;
+  text-decoration: none;
+}
+
+.logo__picture {
+  width: 6vw;
+  height: 10vh;
+}
+
+.logo__text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+}
+
+@media screen and (max-width: 1025px) {
+  .logo__text {
+    display: none;
+  }
+}
+
+.logo__title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2em;
+  font-weight: 900;
+  color: #fff;
+  text-decoration: none;
+}
+
+.logo__subtitle {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.75em;
+  font-weight: normal;
+  color: #fff;
+  line-height: 0.2em;
+}
+
+/*Меню*/
+.menu {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: menu;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.menu__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+}
+
+.menu__list > li {
+  margin: 0px 3% 0px 0px;
+}
+
+@media screen and (max-width: 1025px) {
+  .menu__list > li {
+    margin: 0px 1% 0px 0px;
+  }
+}
+
+.menu__list > li:hover .sub-menu__list {
+  display: block;
+}
+
+.menu li {
+  position: relative;
+  list-style: none;
+}
+
+.menu__link {
+  width: 180px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 1025px) {
+  .menu__link {
+    width: 150px;
+  }
+}
+
+.sub-menu__list {
+  display: none;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  position: absolute;
+  left: 0;
+  top: 20px;
+  padding: 20px 0px 0px 0px;
+}
+
+.sub-menu__list > li {
+  background-color: #fff;
+}
+
+.sub-menu__link {
+  color: black;
+  display: inline-block;
+  padding: 5px 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.contact-link {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: contact-link;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-right: 10%;
+}
+
+/*Кнопка Контакты в хедере*/
+.btn-contact {
+  display: inline-block;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  background-color: #fff;
+  color: black;
+  padding: 0.8rem 2rem;
+  text-decoration: none;
+  border-radius: 20px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  font-weight: 700;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  background-image: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+@media screen and (max-width: 1025px) {
+  .contact-link {
+    padding-right: 5%;
+  }
+}
+
+/*центральный блок*/
+.central-part {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: central-part;
+  width: 100vw;
+  width: 100%;
+}
+
+.central-part__title {
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 4.5em;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  padding-top: 4%;
+  padding-bottom: 3%;
+}
+
+.central-part__subtitle {
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.38em;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  padding-bottom: 5%;
+}
+
+.central-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.central-part__btn {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #f5914f;
+  color: #fff;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2% 5%;
+  font-size: 1em;
+  font-weight: bold;
+  color: white;
+  border-radius: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 20px 0px;
+          box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 20px 0px;
+}
+
+/*Стрелка внизу блока*/
+.arrow {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: arrow;
+  width: 100vw;
+  width: 100%;
+}
+
+/*бургер меню*/
+/*# sourceMappingURL=ui.css.map */

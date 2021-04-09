@@ -1,0 +1,263 @@
+/*Обнуление*/
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+/*импорты связанных scss файлов*/
+@import "color";
+@import "fonts";
+@import "mixins";
+@import "varBrakePoint";
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    margin: 0 auto;
+    row-gap: 25%;
+    column-gap: 1px;
+    background-image: url(../image/Карелия.jpg);
+    background-size: cover;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 10% 30% 10%;
+    grid-template-areas:
+        "header header header"
+        " .    central-part  . "
+        " .    arrow  . "
+}
+
+.header {
+    grid-area: header;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    column-gap: 1px;
+    grid-template-areas:
+        "logo menu  contact-link"
+}
+
+/*Лого*/
+.logo {
+    grid-area: logo;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+    text-decoration: none;
+}
+
+.logo__picture {
+    width: 6vw;
+    height: 10vh;
+}
+
+.logo__text {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+@media screen and (max-width:$big-tablet) {
+    .logo__text {
+        display: none;
+    }
+}
+
+.logo__title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+    font-weight: 900;
+    color: #fff;
+    text-decoration: none;
+}
+
+.logo__subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.75em;
+    font-weight: normal;
+    color: #fff;
+    line-height: 0.2em;
+}
+
+/*Меню*/
+.menu {
+    grid-area: menu;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.menu__list {
+    display: flex;
+    text-align: center;
+}
+
+.menu__list>li {
+    margin: 0px 3% 0px 0px;
+}
+
+@media screen and (max-width:$big-tablet) {
+    .menu__list>li {
+        margin: 0px 1% 0px 0px;
+    }
+}
+
+.menu__list>li:hover .sub-menu__list {
+    display: block;
+}
+
+.menu li {
+    position: relative;
+    list-style: none;
+}
+
+.menu__link {
+    width: 180px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width:$big-tablet) {
+    .menu__link {
+        width: 150px;
+    }
+}
+
+.sub-menu__list {
+    display: none;
+    min-width: fit-content;
+    position: absolute;
+    left: 0;
+    top: 20px;
+    padding: 20px 0px 0px 0px;
+}
+
+.sub-menu__list>li {
+    background-color: #fff;
+}
+
+.sub-menu__link {
+    color: black;
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: $default-font;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.contact-link {
+    grid-area: contact-link;
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10%;
+}
+
+/*Кнопка Контакты в хедере*/
+.btn-contact {
+    display: inline-block;
+    justify-content: end;
+    background-color: #fff;
+    color: black;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    border-radius: 20px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    font-weight: 700;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    background-image: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+@media screen and (max-width:$big-tablet) {
+    .contact-link {
+        padding-right: 5%;
+    }
+}
+
+
+/*центральный блок*/
+.central-part {
+    grid-area: central-part;
+    width: 100vw;
+    width: 100%;
+}
+
+.central-part__title {
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 4.5em;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    padding-top: 4%;
+    padding-bottom: 3%;
+}
+
+.central-part__subtitle {
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.38em;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+.central-button {
+    display: flex;
+    justify-content: center;
+}
+
+.central-part__btn {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    background-color: rgb(245, 145, 79);
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 5%;
+    font-size: 1em;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    border-radius: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 20px 0px;
+}
+
+/*Стрелка внизу блока*/
+.arrow {
+    grid-area: arrow;
+    width: 100vw;
+    width: 100%;
+}
+
+/*бургер меню*/

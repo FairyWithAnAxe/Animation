@@ -1,0 +1,26 @@
+.resources {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(to top, rgba(44, 39, 39, 0.3), rgba(43, 37, 37, 0.76)), url(../images/Talk.jpg);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.resources__title {
+    margin: 0;
+    color: white;
+    font-size: 4.5em;
+    align-content: center;
+}
+
+.resources__info {
+    text-align: center;
+    line-height: 1.5;
+    font-size: 1.5em;
+    color: white;
+    font-weight: lighter;
+}
